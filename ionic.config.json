@@ -1,0 +1,7 @@
+{
+  "name": "it-mouse",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
