@@ -1,0 +1,52 @@
+.subtitle {
+    margin: 40px;
+    margin-top: 80px;
+    margin-bottom: 0px;
+}
+
+.univ-card {
+    border-radius: 24px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.univ-col{
+    padding: 0;
+}
+
+.univ-image {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.univ-image-col {
+    height: 600px;
+    width: 100%;
+    flex: 0 0 100%;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.univ-header {
+    padding-bottom: 0px;
+}
+.univ-info-row {
+    margin-top: 8px;
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.univ-desc {
+    line-height: 1.7;
+}
+.univ-review-count {
+    display: inline-block;
+    padding: 8px;
+    padding-top: 2px;
+}

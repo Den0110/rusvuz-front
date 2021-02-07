@@ -7,12 +7,25 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
+  IonMenu,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonItem,
+  IonList,
+  IonMenuToggle,
+  IonRow,
+  IonCol,
+  IonButton,
+  IonImg,
+  IonAvatar
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import Universities from './pages/Universities';
+import Specialties from './pages/Specialties';
+import University from './pages/University';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,40 +45,39 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './App.css';
+
+import logo from "./assets/logo.png";
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
+      <IonHeader>
+        <IonToolbar>
+          <IonRow class="ion-align-items-center">
+            <IonCol class="logo-col">
+                <img className="logo" src={logo} />
+            </IonCol>
+            <IonCol>
+                <IonButton fill="clear" routerLink="/specialties" routerDirection="root" class="menu-item">
+                  НАПРАВЛЕНИЯ
+                </IonButton>
+                <IonButton fill="clear" routerLink="/universities" routerDirection="root" class="menu-item">
+                  ВУЗЫ РОССИИ
+                </IonButton>
+            </IonCol>
+          </IonRow>
+        </IonToolbar>
+      </IonHeader>
+    
+      <IonContent>
+        <IonRouterOutlet class="desktop-wrapper">
+            <Route path="/" render={() => <Redirect to="/universities"/>} exact={true}></Route>
+            <Route path="/university/:id" component={University} exact={true} />
+            <Route path="/universities" component={Universities} exact={true} />
+            <Route path="/specialties" component={Specialties} exact={true} />
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
+      </IonContent>
     </IonReactRouter>
   </IonApp>
 );
