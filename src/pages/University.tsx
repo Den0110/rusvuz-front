@@ -166,7 +166,7 @@ const University = ({ university }: UniversityProps) => (
 
         {
           university.news.map (news => (
-            <div>
+            <div className="item">
             <IonItem>
               {news.date}
                 <br/>
@@ -174,7 +174,7 @@ const University = ({ university }: UniversityProps) => (
 
                 </IonItem>
             <IonItem>
-              <span>{news.text}</span>
+              <span className="text">{news.text}</span>
             </IonItem>
 
             </div>
@@ -187,20 +187,19 @@ const University = ({ university }: UniversityProps) => (
 
         {
           university.ratings.map (rating => (
-            <div>
-            
-            <div className="univ-info-row">
-            <StarRatingComponent 
-                name={university.name+"_rating"} 
-                starCount={5}
-                editing={false}
-                value={rating.rating}
-                onStarClick={undefined}/>
-                </div>
+            <div className="item">
               <IonTitle>{rating.user_name}</IonTitle>
-            <IonItem>
-              <span>{rating.text}</span>
-            </IonItem>
+              <div className="starz">
+                <StarRatingComponent 
+                  name={university.name+"_rating"} 
+                  starCount={5}
+                  editing={false}
+                  value={rating.rating}
+                  onStarClick={undefined}/>
+              </div>
+              <IonItem>
+                <span className="text">{rating.text}</span>
+              </IonItem>
             </div>
           ))
         }
